@@ -1,0 +1,22 @@
+{
+  "name": "js-5hm-1",
+  "version": "1.0.0",
+  "main": "task-1.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "parcel index.html"
+  },
+  "keywords": [],
+  "author": "Max",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "chart.js": "^4.4.7",
+    "parcel": "^2.13.3"
+  },
+  "devDependencies": {
+    "@pnotify/core": "^5.2.0",
+    "pnotify": "^5.2.0"
+  }
+}

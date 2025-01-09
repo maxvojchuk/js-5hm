@@ -39,9 +39,9 @@ const chartData = {
         600, 650, 700, 750, 800, 850, 900, 950, 1000, 1050, 1100, 1150, 1200,
         1250, 1300, 1350,
       ],
-      backgroundColor: "rgba(177, 243, 33, 0.2)",
-      borderColor: "#5164",
-      borderWidth: 1,
+      backgroundColor: "rgba(243, 117, 33, 0.2)",
+      borderColor: "rgba(77, 32, 3, 0.2)",
+      borderWidth: 2,
       fill: true,
     },
   ],
@@ -60,4 +60,4 @@ const config = {
   },
 };
 
-const salesChart = new Chart(document.querySelector("#sales-chart"), config);
+const salesChart = new Chart(document.getElementById("sales-chart"), config);

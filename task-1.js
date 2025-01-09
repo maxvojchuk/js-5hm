@@ -1,42 +1,42 @@
 const keys = ["a", "s", "d", "f", "g", "h", "j", "k", "l", ";"];
 let currentKeyIndex = 0;
-
-const keysUpdate = () => {
-  const keyElement = document.getElementById("key");
+const keyElement = document.querySelector(".div");
+const messageElement = document.getElementById("message");
+const notificationElement = document.querySelector(".notification");
+const newGameButton = document.querySelector(".newGame");
+const setCurrentKey = () => {
   keyElement.textContent = keys[currentKeyIndex];
 };
-
-const showError = (message) => {
-  PNotify.error({
-    text: message,
-    delay: 2000,
-  });
+const showNotification = (message) => {
+  notificationElement.textContent = message;
+  setTimeout(() => {
+    notificationElement.textContent = "";
+  }, 2000);
 };
-
-document.addEventListener("keydown", (event) => {
+const handleKeyDown = (event) => {
   const pressedKey = event.key.toLowerCase();
   if (pressedKey === keys[currentKeyIndex]) {
     currentKeyIndex++;
     if (currentKeyIndex < keys.length) {
-      keysUpdate();
+      setCurrentKey();
+      messageElement.textContent = "Good";
     } else {
-      showError("Вітаємо! Ви завершили гру!");
+      messageElement.textContent = "Very good гра stop";
       currentKeyIndex = 0;
-      updateKey();
     }
   } else {
-    showError("Неправильна клавіша! Спробуйте ще раз.");
+    showNotification("Bad error ми незнаємо такої клавіші");
   }
-});
-
-document.addEventListener("keypress", (event) => {
+};
+const handleKeyPress = (event) => {
   event.preventDefault();
-});
-
-document.querySelector("#button").addEventListener("click", () => {
+};
+const startNewGame = () => {
   currentKeyIndex = 0;
-  updateKey();
-  showError("Нова гра розпочата!");
-});
-
-updateKey();
+  setCurrentKey();
+  messageElement.textContent = "Гра start";
+};
+document.addEventListener("keydown", handleKeyDown);
+document.addEventListener("keypress", handleKeyPress);
+newGameButton.addEventListener("click", startNewGame);
+setCurrentKey();
